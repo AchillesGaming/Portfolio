@@ -1,222 +1,581 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Jhon Masahito Campus, BS Information Technology graduate specializing in IT support, helpdesk operations, troubleshooting, and web projects." />
-  <title>Jhon Masahito Campus | IT Support Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Jhon Masahito Campus home">
-      <span class="brand-mark">JC</span>
-      <span>Jhon Campus</span>
-    </a>
+:root {
+  --ink: #f7f7f7;
+  --muted: #b8b8b8;
+  --line: #2b2b2b;
+  --paper: #050505;
+  --white: #ffffff;
+  --teal: #f7f7f7;
+  --gold: #ffffff;
+  --charcoal: #0f0f0f;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
 
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+* {
+  box-sizing: border-box;
+}
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">IT Support &bull; Helpdesk &bull; Web Projects</p>
-        <h1>Jhon Masahito Campus</h1>
-        <p class="lead">
-          Bachelor of Science in Information Technology graduate focused on dependable
-          technical support, clear documentation, and practical web solutions for small
-          businesses and teams.
-        </p>
+html {
+  scroll-behavior: smooth;
+}
 
-        <div class="hero-actions" aria-label="Contact actions">
-          <a class="button primary" href="mailto:bembemmasahito098@gmail.com">Email Me</a>
-          <a class="button secondary" href="#projects">View Projects</a>
-        </div>
-      </div>
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
 
-      <aside class="profile-panel" aria-label="Profile highlights">
-        <div class="portrait">
-          <img
-            src="profile.png"
-            alt="Portrait of Jhon Masahito Campus"
-            onerror="this.hidden=true; this.nextElementSibling.hidden=false"
-          />
-          <span hidden>JC</span>
-        </div>
+a {
+  color: inherit;
+}
 
-        <div class="status-card">
-          <p class="status-label">Available for</p>
-          <p>IT support, troubleshooting, documentation, and web maintenance roles.</p>
-        </div>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 5vw, 72px);
+  background: rgba(5, 5, 5, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+}
 
-        <dl class="quick-facts">
-          <div>
-            <dt>Location</dt>
-            <dd>Las Pi&ntilde;as City, Philippines</dd>
-          </div>
-          <div>
-            <dt>Phone</dt>
-            <dd><a href="tel:+639267419350">+63 926 741 9350</a></dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd><a href="mailto:bembemmasahito098@gmail.com">bembemmasahito098@gmail.com</a></dd>
-          </div>
-        </dl>
-      </aside>
-    </section>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
 
-    <section class="section summary" aria-labelledby="summary-title">
-      <div>
-        <p class="section-kicker">Professional Summary</p>
-        <h2 id="summary-title">Reliable support with a practical web mindset.</h2>
-      </div>
-      <p>
-        I bring hands-on experience maintaining computers, printers, office networks,
-        and day-to-day software issues. My work combines patient user support with
-        technical curiosity across PHP, MySQL, Laravel basics, MongoDB, HTML, CSS,
-        JavaScript, SEO, product listings, and media editing.
-      </p>
-    </section>
+.brand-mark {
+  position: relative;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: var(--white);
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  box-shadow: inset 0 0 0 5px #050505, inset 0 0 0 6px rgba(255, 255, 255, 0.28);
+}
 
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading">
-        <p class="section-kicker">Professional Expertise</p>
-        <h2 id="skills-title">Skills that keep systems and teams moving.</h2>
-      </div>
+.brand-mark::after {
+  position: absolute;
+  right: -5px;
+  bottom: 5px;
+  width: 12px;
+  height: 12px;
+  content: "";
+  background: var(--white);
+  border: 3px solid #050505;
+  border-radius: 50%;
+}
 
-      <div class="skill-grid">
-        <article class="skill-card">
-          <span class="icon" aria-hidden="true">01</span>
-          <h3>IT Support</h3>
-          <p>Technical support, IT helpdesk operations, hardware and software troubleshooting.</p>
-        </article>
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 3vw, 34px);
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
 
-        <article class="skill-card">
-          <span class="icon" aria-hidden="true">02</span>
-          <h3>Web Basics</h3>
-          <p>HTML, CSS, JavaScript basics, PHP, MySQL, Laravel basics, and MongoDB.</p>
-        </article>
+.site-nav a {
+  text-decoration: none;
+}
 
-        <article class="skill-card">
-          <span class="icon" aria-hidden="true">03</span>
-          <h3>Operations</h3>
-          <p>Windows, Linux, MacOS, documentation, knowledge base creation, and training.</p>
-        </article>
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
 
-        <article class="skill-card">
-          <span class="icon" aria-hidden="true">04</span>
-          <h3>Digital Work</h3>
-          <p>SEO optimization, e-commerce product listings, Photoshop, Canva, and media editing.</p>
-        </article>
-      </div>
-    </section>
+.hero,
+.section,
+.contact-band {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
 
-    <section class="section timeline-section" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading">
-        <p class="section-kicker">Professional Experience</p>
-        <h2 id="experience-title">Hands-on support and project delivery.</h2>
-      </div>
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(34px, 6vw, 76px);
+  align-items: center;
+  min-height: calc(100vh - 78px);
+  padding: 54px 0 70px;
+}
 
-      <div class="timeline">
-        <article class="timeline-item">
-          <div class="timeline-date">Aug 2024 - Dec 2024</div>
-          <div class="timeline-content">
-            <h3>Technical Support Assistant (OJT)</h3>
-            <p class="company">Subcri Industrial Fabrication</p>
-            <ul>
-              <li>Maintained IT equipment including PCs, printers, and office networks.</li>
-              <li>Troubleshot daily user issues in Microsoft Office, email, and inventory software.</li>
-              <li>Assisted hardware fixes, minimizing downtime during transactions.</li>
-            </ul>
-          </div>
-        </article>
+.eyebrow,
+.section-kicker {
+  margin: 0 0 10px;
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
-        <article class="timeline-item">
-          <div class="timeline-date">2022 - Present</div>
-          <div class="timeline-content">
-            <h3>Freelance IT Support &amp; Web Projects</h3>
-            <p class="company">Remote / Manila, Philippines</p>
-            <ul>
-              <li>Built and deployed websites using PHP, MySQL, Laravel, MongoDB, Vercel, and Render.</li>
-              <li>Guided clients in using digital tools to improve productivity and uptime.</li>
-              <li>Delivered clear technical documentation and training for non-technical users.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
 
-    <section class="section projects" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
-        <p class="section-kicker">Projects</p>
-        <h2 id="projects-title">Selected web work.</h2>
-      </div>
+h1 {
+  max-width: 780px;
+  margin-bottom: 20px;
+  font-size: clamp(3rem, 7.3vw, 6.8rem);
+  line-height: 0.94;
+  letter-spacing: 0;
+}
 
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-topline">
-            <span>E-commerce</span>
-            <a href="https://vdecks-shop.vercel.app" target="_blank" rel="noreferrer">Live Site</a>
-          </div>
-          <h3>VDECK Online Shop</h3>
-          <p>
-            E-commerce platform built with PHP, MySQL, MongoDB, Render backend,
-            and Vercel frontend deployment.
-          </p>
-        </article>
+h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.75rem, 3vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
 
-        <article class="project-card">
-          <div class="project-topline">
-            <span>Business Platform</span>
-            <a href="https://subcri-website.vercel.app" target="_blank" rel="noreferrer">Live Site</a>
-          </div>
-          <h3>Subcri Industrial Fabricator</h3>
-          <p>
-            Business platform using PHP, MySQL, MongoDB, Render backend,
-            and Vercel frontend deployment.
-          </p>
-        </article>
-      </div>
-    </section>
+h3 {
+  margin-bottom: 8px;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
 
-    <section class="section education" aria-labelledby="education-title">
-      <div>
-        <p class="section-kicker">Academic Experience</p>
-        <h2 id="education-title">Bachelor of Science in Information Technology</h2>
-      </div>
-      <p>
-        Philippine Christian University | 2021 - 2026<br />
-        Completed with a focus on support, web development, systems, and IT operations.
-      </p>
-    </section>
+.lead {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+}
 
-    <section class="contact-band" id="contact" aria-labelledby="contact-title">
-      <div>
-        <p class="section-kicker">Contact</p>
-        <h2 id="contact-title">Let's build something useful.</h2>
-        <p>
-          I'm ready to help with IT support, helpdesk operations, troubleshooting,
-          documentation, and web support projects.
-        </p>
-      </div>
+.hero-actions,
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
 
-      <div class="contact-actions">
-        <a class="button primary" href="mailto:bembemmasahito098@gmail.com">bembemmasahito098@gmail.com</a>
-        <a class="button secondary" href="tel:+639267419350">Call +63 926 741 9350</a>
-      </div>
-    </section>
-  </main>
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+}
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Jhon Masahito Campus. Portfolio based on resume details.</p>
-  </footer>
+.button.primary {
+  color: #050505;
+  background: var(--white);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.button.secondary {
+  color: var(--white);
+  background: transparent;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.profile-panel {
+  position: relative;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    #0f0f0f;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.profile-panel::before {
+  position: absolute;
+  inset: 18px 18px auto auto;
+  width: 102px;
+  height: 102px;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border-radius: 8px;
+}
+
+.portrait {
+  position: relative;
+  display: grid;
+  width: min(100%, 260px);
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 24px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(145deg, #050505, #3b3b3b);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.portrait::after {
+  position: absolute;
+  right: -32px;
+  bottom: -18px;
+  width: 150px;
+  height: 150px;
+  content: "";
+  border: 18px solid rgba(255, 255, 255, 0.34);
+  border-radius: 50%;
+}
+
+.portrait span {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 9vw, 5.8rem);
+  font-weight: 900;
+}
+
+.portrait img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-card {
+  position: relative;
+  padding: 18px;
+  background: #050505;
+  border-radius: 8px;
+  color: var(--white);
+}
+
+.status-card p:last-child {
+  margin-bottom: 0;
+}
+
+.status-label {
+  margin-bottom: 4px;
+  color: #d8d8d8;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quick-facts {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+}
+
+.quick-facts div {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.quick-facts dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.quick-facts dd {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+  font-weight: 800;
+}
+
+.quick-facts a {
+  color: var(--white);
+}
+
+.section {
+  padding: 82px 0;
+  border-top: 1px solid var(--line);
+}
+
+.summary,
+.education {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+}
+
+.summary p:last-child,
+.education p:last-child {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.skill-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card,
+.project-card {
+  min-height: 230px;
+  padding: 22px;
+  background: #0f0f0f;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.skill-card p,
+.project-card p,
+.timeline-content li {
+  color: var(--muted);
+}
+
+.icon {
+  display: inline-flex;
+  margin-bottom: 42px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.timeline {
+  display: grid;
+  gap: 22px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 26px;
+}
+
+.timeline-date {
+  color: var(--teal);
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.timeline-content {
+  position: relative;
+  padding: 0 0 28px 28px;
+  border-left: 2px solid var(--line);
+}
+
+.timeline-content::before {
+  position: absolute;
+  top: 3px;
+  left: -8px;
+  width: 14px;
+  height: 14px;
+  content: "";
+  background: var(--gold);
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+}
+
+.company {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+li + li {
+  margin-top: 8px;
+}
+
+.projects {
+  background:
+    linear-gradient(180deg, transparent 0, transparent 82px, rgba(255, 255, 255, 0.035) 82px);
+}
+
+.project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  min-height: 255px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 38px;
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project-topline a {
+  color: var(--white);
+  text-transform: none;
+}
+
+.contact-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 46px;
+  padding: clamp(28px, 5vw, 54px);
+  color: var(--white);
+  background: #111111;
+  border-radius: 8px;
+}
+
+.contact-band .section-kicker {
+  color: #d8d8d8;
+}
+
+.contact-band p {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-band .button {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-band .button.primary {
+  color: #050505;
+  background: var(--white);
+}
+
+.contact-band .button.secondary {
+  color: var(--white);
+}
+
+.site-footer {
+  padding: 26px 20px 40px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .site-header {
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.86rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 44px;
+  }
+
+  .profile-panel {
+    display: grid;
+    grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .portrait {
+    margin-bottom: 0;
+  }
+
+  .quick-facts {
+    grid-column: 1 / -1;
+  }
+
+  .summary,
+  .education,
+  .timeline-item,
+  .contact-band {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-actions {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .section,
+  .contact-band {
+    width: min(100% - 28px, 1120px);
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 18vw, 4.8rem);
+  }
+
+  .profile-panel,
+  .skill-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card,
+  .project-card {
+    min-height: auto;
+  }
+
+  .icon,
+  .project-topline {
+    margin-bottom: 22px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
